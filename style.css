@@ -3,3 +3,7 @@
     font-weight: 200;
     max-width: 500px;
 }
+
+body {
+    margin: 24px;
+}
