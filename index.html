@@ -1,13 +1,57 @@
-<html>
-    <head>
-        <title>Anirudh Sasikumar</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
-    </head>
-    <body>
-        <h2>Anirudh Sasikumar</h2>
-        <p>👋, I'm Anirudh, an inventor, programmer and a technical architect. I work as a Senior Principal Scientist at <a href="https://adobe.com">Adobe</a> where I co-created a <a href="https://www.adobe.com/products/xd.html">design tool</a>. Computer graphics, creative expression and LLMs fascinate me.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Anirudh Sasikumar: inventor, programmer and technical architect.">
+<title>Anirudh Sasikumar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <p>My 16 year old self <a href="http://anirudhsasikumar.net/">lives elsewhere</a>.</p>
-    </body>
+<canvas id="sea" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<main class="stage">
+  <header class="top">
+    <span class="mark">a<span>.</span>s</span>
+    <nav class="tod" aria-label="Time of day">
+      <button class="chip" type="button" id="tod-dawn" data-tod="dawn" aria-pressed="false">Dawn</button>
+      <button class="chip" type="button" id="tod-noon" data-tod="noon" aria-pressed="false">Midday</button>
+      <button class="chip" type="button" id="tod-gold" data-tod="gold" aria-pressed="true">Golden hour</button>
+      <button class="chip" type="button" id="tod-moon" data-tod="moon" aria-pressed="false">Moonlight</button>
+    </nav>
+  </header>
+
+  <div aria-hidden="true"></div>
+
+  <div class="bottom">
+    <section class="intro">
+      <p class="eyebrow">Inventor &middot; Programmer &middot; Technical architect</p>
+      <h1>Anirudh<br><em>Sasikumar</em></h1>
+      <p class="bio">I work as a <strong>Senior Principal Scientist</strong> at <a href="https://adobe.com">Adobe</a>, where I co-created a <a href="https://www.adobe.com/products/xd.html">design tool</a>, <a href="https://news.adobe.com/news/2025/10/adobe-max-2025-express-ai-assistant">conversational creation &amp; editing assistant</a>. Computer graphics, creative expression and LLMs fascinate me.</p>
+      <p class="elsewhere">My 16 year old self <a href="http://anirudhsasikumar.net/">lives elsewhere</a>.</p>
+    </section>
+
+    <aside class="bridge" aria-label="Sea conditions">
+      <dl class="readout">
+        <dt>Wind</dt><dd id="r-wind">31 kn</dd>
+        <dt>Wave height</dt><dd id="r-hs">5.8 m</dd>
+        <dt>Swell period</dt><dd id="r-t">13 s</dd>
+        <dt id="r-body">Sun</dt><dd id="r-el">5&deg;</dd>
+      </dl>
+      <div class="sea-ctl">
+        <label for="sea-state"><span>Wind</span><output id="sea-name" for="sea-state">Near gale</output></label>
+        <input type="range" id="sea-state" min="0" max="1" step="0.001" value="0.68">
+      </div>
+      <p class="note">A live FFT ocean simulation. Move the pointer to look around. <button type="button" id="pause">Pause</button></p>
+    </aside>
+  </div>
+</main>
+
+<script src="ocean.js"></script>
+</body>
 </html>
